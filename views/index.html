@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/public/style.css">
+</head>
+<body>
+  <h1>Issue Tracker API</h1>
+  <div id="app-container">
+    <div id="intro-container" class="container">
+      <h1>Overview</h1>
+      <p>The Issue Tracker is an API that keeps track issues for a project. 
+        It follows CRUD principles such that it can add, update, delete, and retrieve issues in a database. 
+        It is designed as a RESTful API using GET, POST, DELETE, and PUT requests to perform CRUD operations. 
+      </p>
+      <p>Using the route <code>[project_url]/api/issues/[project]</code>, we can perform CRUD operations on a database powered by MongoDB. 
+        Issues will be stored and retrieved as a JSON object.
+      </p>
+    </div>
+    <div id="forms-container" class="container">
+      <h2>API Test for Project <i>apitest</i></h2>
+      <h3>Add an Issue to Project <i>apitest</i></h3>
+      <form action="/api/issues/apitest" method="POST">
+        <label for="issue_title">Issue Title</label>
+        <input type="text" id="issue_title" name="issue_title" required><br>
+        <label for="created_by">Created By</label>
+        <input type="text" id="created_by" name="created_by" required><br>
+        <label for="assigned_to">Assigned To</label>
+        <input type="text" id="assigned_by" name="assigned_by"><br>
+        <label for="status_text">Status Text</label>
+        <input type='text' id="status_text" name="status_text"><br>
+        <label for="issue_text">Issue Text</label>
+        <textarea id="issue_text" name="issue_text" row="20" col="200" required></textarea><br>
+        <input type="submit" value="Submit"><br>
+      </form>
+      <br>
+      <h3>Update an Issue from Project <i>apitest</i></h3>
+      <form action="/api/issues/apitest?_method=PUT" method="POST">
+        <label for="id">ID</label>
+        <input type="text" id="id" name="id" required><br>
+        <label for="issue_title">Issue Title</label>
+        <input type="text" id="issue_title" name="issue_title"><br>
+        <label for="created_by">Created By</label>
+        <input type="text" id="created_by" name="created_by"><br>
+        <label for="assigned_to">Assigned To</label>
+        <input type="text" id="assigned_by" name="assigned_by"><br>
+        <label for="status_text">Status Text</label>
+        <input type='text' id="status_text" name="status_text"><br>
+        <label for="issue_text">Issue Text</label>
+        <textarea id="issue_text" name="issue_text" row="20" col="200"></textarea><br>
+        <label for="closed">Close case?</label>
+        <input type="checkbox" id="closed" name="closed" value="closed"><br>
+        <input type="submit" value="Submit"><br>
+      </form>
+      <h3>Delete an Issue from <i>apitest</i></h3>
+      <form action="/api/issues/apitest?_method=DELETE" method="POST">
+        <label for="id">ID</label>
+        <input type="text" id="id" name="id" required>
+        <input type="submit" value="Submit">
+      </form><br>
+      <a href="/api/issues/apitest">Click here to show all issues for project <i>apitest</i> via GET request.</a>
+    </div>
+  </div>
+</body>
+</html>
